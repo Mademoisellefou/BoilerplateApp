@@ -1,0 +1,14 @@
+version: '3'
+services: 
+  app:
+    image: libiamel/dev-front-app:v0
+    container_name: devfrontapp
+    build: 
+      context: .
+      args:
+        REACT_APP_BACKEND_URL: ${REACT_APP_BACKEND_URL}
+    ports:
+      - "3000:3000"
+
+
+
