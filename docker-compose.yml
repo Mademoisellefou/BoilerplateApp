@@ -1,0 +1,38 @@
+version: "3"
+services:
+  nginx:
+    depends_on:
+      - api
+      - frontend
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - "80:80"
+  api:
+    image: libiamel/dev-back-app:v0
+    container_name: api
+    build:
+      dockerfile: Dockerfile
+      context: "./server"
+      args:
+        PORT: ${PORT}
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+    ports:
+      - "4000:4000"
+  frontend:
+    stdin_open: true
+    image: libiamel/dev-front-app:v0
+    container_name: frontend
+    build: 
+      dockerfile: Dockerfile
+      context: ./frontend
+      args:
+        REACT_APP_BACKEND_URL: ${REACT_APP_BACKEND_URL}
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      - ./frontend:/app
