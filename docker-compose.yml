@@ -1,14 +1,14 @@
 version: "3"
 services:
-  nginx:
-    depends_on:
-      - api
-      - frontend
-    build:
-      dockerfile: Dockerfile
-      context: ./nginx
-    ports:
-      - "80:80"
+  #nginx:
+  #  depends_on:
+  #    - api
+  #    - frontend
+  #  build:
+  #    dockerfile: Dockerfile
+  #    context: ./nginx
+  #  ports:
+  #    - "80:80"
   api:
     image: libiamel/dev-back-app:v0
     container_name: api
