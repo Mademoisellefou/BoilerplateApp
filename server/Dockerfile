@@ -4,5 +4,5 @@ COPY ./package.json ./
 RUN npm i
 ARG PORT
 ENV PORT $PORT
-COPY . .
+COPY . /app/
 CMD ["npm","start"]
