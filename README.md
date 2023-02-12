@@ -1,9 +1,12 @@
-Add .env:
+# Important
+
+Create .env for example .env_EXAMPLE:
+
 ```
 PORT=4000
 REACT_APP_BACKEND_URL=http://localhost:4000
+DOMAIN=melany.local
 ```
-
 
 # Docs
 
